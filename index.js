@@ -33,7 +33,8 @@ function bind_things() {
     // particles.addEventListener("touchstart", set_default);
 
     function blur(elem, reset) {
-        elem.style.filter = (reset ? "none" : "saturate(50%) blur(4px) grayscale(30%) brightness(60%)");
+        elem.style.filter = (reset ? "none" : "saturate(40%) grayscale(30%) brightness(40%)");
+        elem.style.opacity = (reset ? "1" : "0.5");
     }
 
     function goto(site) {

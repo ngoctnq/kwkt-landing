@@ -99,7 +99,7 @@ body {
     border: 3px solid #0000000f;
     border-image-slice: 1;
     border-width: 5px;
-    transition: filter 0.2s ease-in-out;
+    transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
