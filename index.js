@@ -2,7 +2,7 @@ target = "";
 del_ = false;
 count = 0;
 
-window.onload = () => {
+function bind_things() {
     chooser = document.getElementById("choose");
 
     function set_target(text) {
@@ -104,7 +104,7 @@ window.onload = () => {
             await new Promise(resolve => setTimeout(resolve, 20));
             if (count % dot_cycle == 0) {
                 kawaii.innerHTML = kawaii.innerHTML.substr(0, 6) + '.'.repeat(count / dot_cycle)
-            };
+            }
             count = (count + 1) % (dot_cycle * 4);
 
             if (del_) {
@@ -117,4 +117,4 @@ window.onload = () => {
             target = target.substr(1);
         }
     })();
-};
+}
