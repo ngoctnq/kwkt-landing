@@ -1,41 +1,20 @@
-body {
+* {
     box-sizing: border-box;
+}
+
+body {
     width: 100%;
     height: 100vh;
-    min-width: 480px;
-    margin: 0px;
+    padding: 8vh;
     background-color: #313131;
-    /* background: linear-gradient(270deg, #135038, #135038, #310853, #135038, #310853, #135038); */
-    /* background-size: 400% 400%; */
-    /* animation: CycleColor 7s linear infinite; */
-
     color: #f0f0f0;
-
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 }
 
-/* @keyframes CycleColor {
-    0%{background-position:0% 50%}
-    100%{background-position:50% 100%}
-    /* 100%{background-position:0% 50%}
-} */
-
-#preview {
-    width: auto;
-    float: left;
-}
-
-#portrait {
-    float: right;
-    height: 80%;
-    width: 80%;
-    /* margin: auto; */
-    margin-top: 10%;
-    /* width: calc(100vh * 0.5 + 240px); */
-    max-width: 80%;
-    /* background-color: aquamarine; */
+#hear {
+    margin-top: -100%;
 }
 
 #links {
@@ -52,14 +31,16 @@ a, a:hover, a:visited {
 }
 
 #kawaii {
-    float: right;
-    font-size: 40px;
-    margin-left: 40px;
+    position: fixed;
+    top: 10%;
+    /* float: right; */
+    font-size: 4vh;
+    margin-left: 10vh;
     /* display: none; */
     writing-mode: vertical-rl;
     text-orientation: upright;
-    letter-spacing: 15px;
-    padding: 30px;
+    letter-spacing: 2.5vh;
+    padding: 2.5vh;
     background: #000;
 }
 
@@ -67,13 +48,14 @@ a, a:hover, a:visited {
     font-family: 'Montserrat Alternates', sans-serif;
     height: 10%;
     line-height: 10%;
-    top: 50%;
     width: 100%;
+    
+    top: 49%;
 
     position: sticky;
     text-align: center;
     vertical-align: middle;
-    font-size: 32px;
+    font-size: 3vh;
 }
 
 .portrait_link {
@@ -97,7 +79,7 @@ a, a:hover, a:visited {
     justify-content: center;
     align-items: center;
     font-style: normal;
-    font-size: 50px;
+    font-size: 5vh;
 }
 
 #top {
@@ -114,7 +96,7 @@ a, a:hover, a:visited {
     border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
 }
 
-@media screen and (max-width: 680px), screen and (max-height: 720px) {
+@media screen and (max-aspect-ratio: 1/1) {
     #kawaii {
         display: none;
     }
