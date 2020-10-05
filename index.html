@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport" />
     <title>separate the art from the artist.</title>
     <script src="index.js"></script>
     <link href="style.css" rel="stylesheet" />
@@ -16,17 +16,17 @@
 <body>
     <div class="particles" id="particles_bg"></div>
     <div class="particles" id="tech_bg"></div>
-    <video autoplay muted loop id="pink">
+    <video autoplay muted loop preload="metadata" id="pink">
         <source src="jukebox.mp4" type="video/mp4">
     </video>
     <div id="overlayer"></div>
 
     <div id="links">
-        <div class="portrait_link" id="top">
+        <div class="linkbox" id="top">
             [hire me]
         </div>
         <div id="choose">Pick one.</div>
-        <div class="portrait_link" id="bot">
+        <div class="linkbox" id="bot">
             [hear me]
         </div>
     </div>

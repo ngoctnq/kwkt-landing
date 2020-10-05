@@ -30,46 +30,72 @@ window.onload = () => {
         overlayer.style.visibility = "hidden";
     }
     set_default();
+    // particles.addEventListener("touchstart", set_default);
 
     function blur(elem, reset) {
         elem.style.filter = (reset ? "none" : "saturate(50%) blur(4px) grayscale(30%) brightness(60%)");
     }
 
-    top_elem.onmouseenter = () => {
+    function goto(site) {
+        return () => {window.location.href = site;};
+    }
+
+    function highlight(elem, mode) {
+        elem.style["border-image-source"] = (mode ? "linear-gradient(to left, #743ad5, #d53a9d)" : "none");
+    }
+
+    function hire_hover() {
         set_target("resume and stuff");
+        blur(top_elem, true);
+        highlight(top_elem, true);
         blur(bot_elem);
+        highlight(bot_elem, false);
         hire_vid.style.visibility = "visible";
         overlayer.style.visibility = "visible";
         particles.style.visibility = "hidden";
-    };
+        hear_vid.style.visibility = "hidden";
+    }
 
-    top_elem.onmouseleave = () => {
+    top_elem.addEventListener("mouseenter", hire_hover);
+    top_elem.addEventListener("touchstart", hire_hover);
+
+    function hire_end() {
         set_target("Pick one.");
         blur(bot_elem, true);
+        highlight(top_elem, false);
         set_default();
     }
 
-    top_elem.onclick = () => {
-        window.location.href = 'https://hire.kwkt.ml';
-    };
+    top_elem.addEventListener("mouseleave", hire_end);
 
-    bot_elem.onmouseenter = () => {
+    top_elem.addEventListener("click", goto('https://hire.kwkt.ml'));
+
+    function hear_hover() {
         set_target("in-your-face music");
         blur(top_elem);
+        highlight(top_elem, false);
+        blur(bot_elem, true);
+        highlight(bot_elem, true);
         particles.style.visibility = "hidden";
+        hire_vid.style.visibility = "hidden";
         hear_vid.style.visibility = "visible";
         overlayer.style.visibility = "visible";
-    };
+    }
 
-    bot_elem.onmouseleave = () => {
+    bot_elem.addEventListener("mouseenter", hear_hover);
+    bot_elem.addEventListener("touchstart", hear_hover);
+
+    function hear_end() {
         set_target("Pick one.");
         blur(top_elem, true);
+        highlight(bot_elem, false);
         set_default();
     }
 
-    bot_elem.onclick = () => {
-        window.location.href = 'https://hear.kwkt.ml';
-    };
+    bot_elem.addEventListener("mouseleave", hear_end);
+    // bot_elem.addEventListener("touchend", hear_end);
+
+    bot_elem.addEventListener("click", goto('https://hear.kwkt.ml'));
 
     kawaii = document.getElementById("kawaii");
     dot_cycle = 72;
@@ -91,4 +117,4 @@ window.onload = () => {
             target = target.substr(1);
         }
     })();
-}
+};
