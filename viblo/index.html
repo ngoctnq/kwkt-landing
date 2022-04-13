@@ -291,7 +291,7 @@
                     for ([idx, post] of data.entries()) {
                         tags = [];
                         for (tag of post.tags.data) tags.push(tag.name);
-                        header = '---\ntitle: "' + post.title + 
+                        header = '---\ntitle: "' + JSON.stringify(post.title) + 
                             '"\ndate: ' + post.updated_at.replace(' ','T') + '+07:00' +
                             '\ntag: ' + JSON.stringify(tags) +
                             '\ndraft: false\n---\n\n'
