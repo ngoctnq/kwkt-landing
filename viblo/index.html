@@ -266,7 +266,7 @@
             else {
                 try {
                     data = JSON.parse(content).data;
-                    if (!Array.isArray(data) || data.length != postCount) throw 'Invalid post data!'
+                    if (!Array.isArray(data)) throw 'Invalid post data!'
                     textSpan.disabled = true;
                     document.getElementById('search').disabled = true;
                     
@@ -288,10 +288,18 @@
                     formElem.style.border = 'none';
 
                     filelist = [];
-                    for ([idx, post] of data.entries()) filelist.push({
-                        name: post.transliterated + '-' + post.slug + '.md',
-                        input: post.contents
-                    });
+                    for ([idx, post] of data.entries()) {
+                        tags = [];
+                        for (tag of post.tags.data) tags.push(tag.name);
+                        header = '---\ntitle: "' + post.title + 
+                            '"\ndate: ' + post.updated_at.replace(' ','T') + '+07:00' +
+                            '\ntag: ' + JSON.stringify(tags) +
+                            '\ndraft: false\n---\n\n'
+                        filelist.push({
+                            name: post.transliterated + '-' + post.slug + '.md',
+                            input: header + post.contents
+                        });
+                    }
                     
                     downloadZip(filelist).blob().then(blob => {
                         url = URL.createObjectURL(blob);
